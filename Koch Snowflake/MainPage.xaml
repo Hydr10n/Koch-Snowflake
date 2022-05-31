@@ -1,0 +1,43 @@
+﻿<Page
+    x:Class="Koch_Snowflake.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Koch_Snowflake"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <StackPanel Orientation="Vertical">
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+            <StackPanel Orientation="Horizontal">
+                <muxc:NumberBox Name="RepeatCount" Header="Repeat Count:" Minimum="0" Maximum="7" Value="0" SmallChange="1"/>
+                <Button Content="OK" Margin="10,28,0,0" Click="OK_Click"/>
+            </StackPanel>
+
+            <TextBlock Margin="0,10,0,0">
+                Vertex Count: <Run x:Name="VertexCount"/>
+            </TextBlock>
+        </StackPanel>
+
+        <ScrollViewer ZoomMode="Enabled"
+                      HorizontalScrollMode="Enabled" HorizontalScrollBarVisibility="Auto"
+                      VerticalScrollMode="Enabled" VerticalScrollBarVisibility="Auto"
+                      ViewChanged="ScrollViewer_ViewChanged"
+                      Margin="0,40,0,0">
+            <Polygon Name="KochSnowflake"
+                     Width="600" Height="600"
+                     HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Polygon.Stroke>
+                    <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                        <GradientStop Color="DarkViolet" Offset="0"/>
+                        <GradientStop Color="MediumVioletRed" Offset="0.4"/>
+                        <GradientStop Color="OrangeRed" Offset="0.8"/>
+                        <GradientStop Color="Gold" Offset="1"/>
+                    </LinearGradientBrush>
+                </Polygon.Stroke>
+            </Polygon>
+        </ScrollViewer>
+    </StackPanel>
+</Page>
